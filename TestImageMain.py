@@ -12,7 +12,7 @@ from ContourFinding import filterContours
 from SpikeFinding import findCenter
 import GripRunner
 from config import debug, sampleImage
-import NetworkTabling
+#import NetworkTabling
 
 
 if debug:
@@ -25,10 +25,10 @@ def main():
 	center = findCenter(targets) #if 2, join and find center, if 1, return val, if 0 return input. if adjustCoords:	center[0] -= halfWidth
 	if debug:
 		printResults(image, contours, targets, center)
-	try:
-		NetworkTabling.publishToTables(center)
-	except:
-		print "The networktables are mean to us"
+#	try:
+#		NetworkTabling.publishToTables(center)
+#	except:
+#		print "The networktables are mean to us"
 
 if __name__ == '__main__':
 	main()
