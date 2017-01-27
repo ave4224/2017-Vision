@@ -8,16 +8,24 @@ def getImage():
 	return rawCapture.array
 
 def set(resolution=False, exposure=False, exposure_mode=False, shutter_speed=False): #e.g. 'snow'
-	global rawCapture
-	rawCapture = PiRGBArray(camera, size=camera.resolution)
 	if resolution:
 		camera.resolution = resolution
 	if exposure:
-		pass
+		print "The pi has a `shutter_speed` setting instead of exposure. Please use that one"
 	if shutter_speed:
 		camera.shutter_speed = shutter_speed
 	if exposure_mode:
 		camera.exposure_mode = exposure
+
+def get(resolution=False, exposure=False, exposure_mode=False, shutter_speed=False): #e.g. 'snow'
+	if resolution:
+		return camera.resolution
+	if exposure:
+		pass
+	if shutter_speed:
+		return camera.exposure_speed
+	if exposure_mode:
+		return camera.exposure_mode
 
 	# camera.brightness = 0 to 100 # default 50
 	# camera.contrast = -100 to 100 # default 0

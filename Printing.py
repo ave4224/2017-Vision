@@ -40,9 +40,10 @@ def drawCenter(image, center, size=defaultThickness, color=0):
 		color = colors[color]
 	cv2.circle(image, center, size, color, size)
 
-def save(image):
-	global imageNum
-	name="image{}.jpg".format(imageNum)
+def save(image, name=None):
+	if name == None:
+		global imageNum
+		name="image{}.jpg".format(imageNum)
 	cv2.imwrite("TestImages/" + name, image)
 	imageNum += 1
 def display(image, name="Contours Found"):

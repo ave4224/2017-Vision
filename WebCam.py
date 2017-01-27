@@ -10,7 +10,13 @@ def set(resolution=False, exposure=False):
 		camera.set(3, resolution[0])
 		camera.set(4, resolution[1])
 	if exposure:
-		camera.set(15, exposure) # exposure
+		camera.set(15, exposure)
+
+def set(resolution=False, exposure=False):
+	if resolution:
+		return (camera.get(3), camera.get(4))
+	if exposure:
+		return camera.get(15)
 
 def getExposure():
 	return camera.get(15)
