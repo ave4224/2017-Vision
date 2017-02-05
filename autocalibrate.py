@@ -15,8 +15,7 @@ numTests = 5
 maxBrightnessIterations = 20
 
 
-def autocalibrate():
-	# displace()
+def calibrate():
 	exposure = WebCam.getExposure()
 	if debug:
 		b = time.clock()
@@ -89,11 +88,12 @@ def displace():
 	WebCam.set(exposure=2000)
 
 
-if __name__ == '__main__':
+def test():
+	displace()
 	start = time.clock()
-	autocalibrate()
-	exposure = WebCam.getExposure()
+	calibrate()
 	print time.clock() - start, "TOTAL TIME"
+	exposure = WebCam.getExposure()
 
 	while display:
 		image = WebCam.getImage()
